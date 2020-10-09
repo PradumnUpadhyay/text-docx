@@ -5,7 +5,7 @@ const app=express()
 
 // Utilities
 const doc=new docx.Document(); let fn=""
-const port=3000 || process.env.PORT
+const port= process.env.PORT
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
