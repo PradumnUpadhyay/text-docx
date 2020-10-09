@@ -11,6 +11,10 @@ app.use(express.urlencoded({ extended: false }))
 
 // const user={}
 // Routes
+app.get('/',(req,res)=>{
+    res.send("Are you lost baby girl?")
+})
+
 app.post('/download',(req,res)=>{
     // Extract string from req body
     console.log("recieved Request")
