@@ -22,9 +22,9 @@ app.post('/download',(req,res)=>{
 try {
    
     const list=req.body.data.slice(1)
-
+    console.log("Request Body: \n",req.body)
     fn=req.body.data[0]
-    console.log(req.body,'\n',list)
+    console.log('List is: \n',list)
     for(let i=0;i<list.length; i++) {
         console.log(list[i])
         doc.addSection({
