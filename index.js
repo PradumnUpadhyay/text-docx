@@ -4,7 +4,7 @@ const express=require('express')
 const app=express()
 
 // Utilities
-const doc=new docx.Document(); let fn=""
+let doc=null; let fn=""
 const port= process.env.PORT
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
@@ -20,6 +20,7 @@ app.post('/download',(req,res)=>{
     console.log("recieved Request")
     let list=req.body.data.slice(1)
 try {     
+    doc=new docx.Document();
     console.log("Request Body: \n",req.body)
     fn=req.body.data[0]
     console.log('List is: \n',list)
@@ -58,6 +59,7 @@ app.get('/download', async (req,res)=>{
         res.setHeader('Content-Disposition', "attachment; filename="+fn+".docx")
         res.send(Buffer.from(b64, 'base64'))
         console.log("File Downloaded")
+        doc=null
     } catch(err){
         console.log("From GET: \n",err)
         res.send("some error occured!")
