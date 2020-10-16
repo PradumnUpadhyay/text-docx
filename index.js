@@ -37,8 +37,10 @@ try {
         })
     }
 console.log("List: \n",list)
-   res.status(200).send('File ready for download!')
     list=null
+    console.log("List after null: \n",list)
+   res.status(200).send('File ready for download!')
+    
 }
 catch(err) {
     console.log("Error: \n",err)
