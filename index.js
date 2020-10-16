@@ -18,7 +18,7 @@ app.get('/',(req,res)=>{
 app.post('/download',(req,res)=>{
     // Extract string from req body
     console.log("recieved Request")
-    const list=req.body.data.slice(1)
+    let list=req.body.data.slice(1)
 try {     
     console.log("Request Body: \n",req.body)
     fn=req.body.data[0]
