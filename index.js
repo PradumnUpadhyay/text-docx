@@ -41,8 +41,9 @@ console.log("List: \n",list)
     list=null
 }
 catch(err) {
-    res.send("Error Occured!\n")
-    console.log("Error: ",err)
+    console.log("Error: \n",err)
+    res.status(200).send("Error Occured!\n")
+    
 }
 })// end of request
 
