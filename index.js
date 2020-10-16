@@ -18,14 +18,12 @@ app.get('/',(req,res)=>{
 app.post('/download',(req,res)=>{
     // Extract string from req body
     console.log("recieved Request")
-try {
-   
     const list=req.body.data.slice(1)
+try {     
     console.log("Request Body: \n",req.body)
     fn=req.body.data[0]
     console.log('List is: \n',list)
     for(let i=0;i<list.length; i++) {
-        console.log("val at pos",list[i])
         doc.addSection({
             properties: {},
             children: [
@@ -40,6 +38,7 @@ try {
     }
 console.log("List: \n",list)
    res.status(200).send('File ready for download!')
+    list=null
 }
 catch(err) {
     res.send("Error Occured!\n")
