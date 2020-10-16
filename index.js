@@ -39,8 +39,8 @@ try {
             ]
         })
     }
-
-   res.status(200).send('File ready for download! \n List is: \n',list,`\n List at position ${i}: ${list[i]}`)
+console.log("List: \n",list)
+   res.status(200).send('File ready for download!')
 }
 catch(err) {
     res.send("Error Occured!\n")
