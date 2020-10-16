@@ -18,7 +18,6 @@ app.get('/',(req,res)=>{
 app.post('/download',(req,res)=>{
     // Extract string from req body
     console.log("recieved Request")
-    console.log(req.body)
 try {
    
     const list=req.body.data.slice(1)
@@ -26,7 +25,7 @@ try {
     fn=req.body.data[0]
     console.log('List is: \n',list)
     for(let i=0;i<list.length; i++) {
-        console.log(list[i])
+        console.log("val at pos",list[i])
         doc.addSection({
             properties: {},
             children: [
