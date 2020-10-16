@@ -50,14 +50,14 @@ catch(err) {
 app.get('/download', async (req,res)=>{
     try {
         console.log('request from device for docx')
-        console.log(req.query)
     
         const b64=await docx.Packer.toBase64String(doc)
-        console.log(fn,"From download route")
-        res.setHeader('Content-Disposition', "attachment; filename="+fn)
-        res.send(Buffer.from(b64, 'base64')+'\n downloading file...')
+        console.log(fn,"From download route\n Downloading file...")
+        res.setHeader('Content-Disposition', "attachment; filename="+fn+".docx")
+        res.send(Buffer.from(b64, 'base64'))
+        console.log("File Downloaded")
     } catch(err){
-        console.log(err)
+        console.log("From GET: \n",err)
         res.send("some error occured!")
     }
 })
