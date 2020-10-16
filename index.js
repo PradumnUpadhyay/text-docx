@@ -24,8 +24,9 @@ try {
     const list=req.body.data.slice(1)
 
     fn=req.body.data[0]
-    // console.log(req.body,'\n',list)
+    console.log(req.body,'\n',list)
     for(let i=0;i<list.length; i++) {
+        console.log(list[i])
         doc.addSection({
             properties: {},
             children: [
@@ -39,7 +40,7 @@ try {
         })
     }
 
-   res.status(200).send('File ready for download!')
+   res.status(200).send('File ready for download! \n List is: \n',list,`\n List at position ${i}: ${list[i]}`)
 }
 catch(err) {
     res.send("Error Occured!")
@@ -55,7 +56,7 @@ app.get('/download', async (req,res)=>{
         const b64=await docx.Packer.toBase64String(doc)
         console.log(fn,"From download route")
         res.setHeader('Content-Disposition', "attachment; filename="+fn)
-        res.send(Buffer.from(b64, 'base64'))
+        res.send(Buffer.from(b64, 'base64')+'\n downloading file...')
     } catch(err){
         console.log(err)
         res.send("some error occured!")
