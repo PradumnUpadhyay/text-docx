@@ -31,7 +31,9 @@ try {
                 new docx.Paragraph({
                     children: [
                         // Writing to doc
-                        new docx.TextRun(list[i]) 
+                         new docx.TextRun({
+                            text: list[i].includes('\n') ? list[i]+'\n' : list[i]
+                        }) 
                     ]
                 })
             ]
