@@ -25,7 +25,7 @@ try {
     fn=req.body.data[0]
     console.log('List is: \n',list)
     for(let i=0;i<list.length; i++) {
-        console.log(list[i].includes("\n"))
+        console.log(list[i].split("\n"))
         doc.addSection({
             properties: {},
             children: [
