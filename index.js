@@ -25,6 +25,7 @@ try {
     fn=req.body.data[0]
     console.log('List is: \n',list)
     for(let i=0;i<list.length; i++) {
+        console.log(list[i].includes("\n"))
         doc.addSection({
             properties: {},
             children: [
@@ -32,7 +33,7 @@ try {
                     children: [
                         // Writing to doc
                          new docx.TextRun({
-                            text: list[i].includes('\n') ? list[i]+'\n' : list[i]
+                            text: list[i]
                         }) 
                     ]
                 })
