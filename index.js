@@ -30,7 +30,7 @@ try {
             properties: {},
             children: [
                 new doc.Paragraph({
-                    text: list[i]
+                    text: "hello world\n This is yagami light..."
                 })
             ]
         })
