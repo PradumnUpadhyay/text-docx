@@ -5,12 +5,13 @@ const app=express()
 
 // Utilities
 let doc=null; let fn=""
-const port= process.env.PORT || 3000
+const port= process.env.PORT
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
 // const user={}
 
+// Function to write on different lines
 function paraWrite(para) {
     var li=para.split("\n")
     console.log(li)
@@ -28,6 +29,7 @@ app.get('/',(req,res)=>{
     res.send("Are you lost baby girl?")
 })
 
+// POST-download
 app.post('/download',(req,res)=>{
     // Extract string from req body
     console.log("recieved Request")
@@ -60,6 +62,7 @@ catch(err) {
 }
 })// end of request
 
+// GET-download
 app.get('/download', async (req,res)=>{
     try {
         console.log('request from device for docx')
