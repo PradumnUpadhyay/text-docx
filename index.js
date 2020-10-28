@@ -29,13 +29,8 @@ try {
         doc.addSection({
             properties: {},
             children: [
-                new docx.Paragraph({
-                    children: [
-                        // Writing to doc
-                         new docx.TextRun({
-                            text: list[i]
-                        }) 
-                    ]
+                new doc.Paragraph({
+                    text: list[i]
                 })
             ]
         })
