@@ -29,7 +29,7 @@ try {
         doc.addSection({
             properties: {},
             children: [
-                new doc.Paragraph({
+                new docx.Paragraph({
                     text: "hello world\n This is yagami light..."
                 })
             ]
