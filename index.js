@@ -5,11 +5,24 @@ const app=express()
 
 // Utilities
 let doc=null; let fn=""
-const port= process.env.PORT
+const port= process.env.PORT || 3000
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
 // const user={}
+
+function paraWrite(para) {
+    var li=para.split("\n")
+    console.log(li)
+    var para=[]
+
+    for(let i=0;i<li.length;i++){
+        para.push(new docx.Paragraph({ text: li[i] }))
+    }
+
+    return para;
+}
+
 // Routes
 app.get('/',(req,res)=>{
     res.send("Are you lost baby girl?")
@@ -22,19 +35,18 @@ app.post('/download',(req,res)=>{
 try {     
     doc=new docx.Document();
     console.log("Request Body: \n",req.body)
+    
     fn=req.body.data[0]
     console.log('List is: \n',list)
+  
     for(let i=0;i<list.length; i++) {
-        console.log(list[i].split("\n"))
-        doc.addSection({
-            properties: {},
-            children: [
-                new docx.Paragraph({
-                    text: "hello world\n This is yagami light..."
-                })
-            ]
+        // console.log(list[i].split("\n"))
+      
+        doc.addSection({            
+            children: paraWrite(list[i])
         })
-    }
+       }
+       
 console.log("List: \n",list)
     list=null
     console.log("List after null: \n",list)
