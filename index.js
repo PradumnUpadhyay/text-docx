@@ -34,6 +34,7 @@ app.post('/download',(req,res)=>{
     // Extract string from req body
     console.log("recieved Request")
     let list=req.body.data.slice(1)
+    console.log(list)
 try {     
     doc=new docx.Document();
     console.log("Request Body: \n",req.body)
@@ -57,7 +58,7 @@ console.log("List: \n",list)
 }
 catch(err) {
     console.log("Error: \n",err)
-    res.status(200).send("Error Occured!\n")
+    res.status(400).send("Error Occured!\n")
     
 }
 })// end of request
